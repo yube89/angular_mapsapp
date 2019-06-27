@@ -13,7 +13,7 @@ export class GmapsService {
     const nuevoMarcador: Marcador = {
       lat: 9.976052,
       lng: -84.006836,
-      titulo: 'Iglesia de Coronado',
+      titulo: '',
       draggable: true
     };
 

@@ -11,11 +11,26 @@ import { GmapsService } from './service/maps/gmaps.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { Routes, RouterModule } from '@angular/router';
+import { TwComponent } from './tw/tw/tw.component';
+
+const routes: Routes = [
+  {
+    path: 'tw',
+    redirectTo: 'TwComponent'
+  },
+  {
+  path : '**',
+  redirectTo: 'AppComponent'
+  }
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    TwComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +38,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAsS_1laPKYy0eX3OxloEdLL4Mgt-aR4TE'
-    })
+    }),
+    RouterModule.forRoot(routes)
   ],
+  exports: [RouterModule],
   providers: [
     GmapsService
   ],
